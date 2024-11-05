@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manutenção de Dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Manutenção de Dados</h1>
+    
+    <section>
+        <h2>Incluir Novo Registro</h2>
+        <form id="incluirForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <button type="submit">Incluir</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Alterar Registro</h2>
+        <form id="alterarForm">
+            <label for="idAlterar">ID:</label>
+            <input type="number" id="idAlterar" name="idAlterar" required><br><br>
+
+            <label for="nomeAlterar">Novo Nome:</label>
+            <input type="text" id="nomeAlterar" name="nomeAlterar"><br><br>
+            
+            <label for="emailAlterar">Novo E-mail:</label>
+            <input type="email" id="emailAlterar" name="emailAlterar"><br><br>
+
++        </form>
+    </section>
+
+    <section>
+        <h2>Excluir Registro</h2>
+        <form id="excluirForm">
+            <label for="idExcluir">ID:</label>
+            <input type="number" id="idExcluir" name="idExcluir" required><br><br>
+
+            <button type="submit">Excluir</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Consultar Registros</h2>
+        <button onclick="consultar()">Consultar Todos</button>
+        <div id="consultaResultado"></div>
+    </section>
+
+    <script>
+        // Função para incluir novo registro (simulação)
+        document.getElementById('incluirForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            alert(`Registro incluído: ${nome} - ${email}`);
+            // Aqui seria a lógica para enviar os dados para o backend
+        });
+
+        // Função para alterar o registro (simulação)
+        document.getElementById('alterarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('idAlterar').value;
+            const nome = document.getElementById('nomeAlterar').value;
+            const email = document.getElementById('emailAlterar').value;
+            alert(`Registro alterado: ID ${id}, Nome: ${nome}, E-mail: ${email}`);
+            // Aqui seria a lógica para enviar os dados ao backend
+        });
+
+        // Função para excluir o registro (simulação)
+        document.getElementById('excluirForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('idExcluir').value;
+            alert(`Registro com ID ${id} excluído.`);
+            // Aqui seria a lógica para enviar o pedido de exclusão ao backend
+        });
+
+        // Função para consultar registros (simulação)
+        function consultar() {
+            // Aqui seria a lógica para buscar dados do backend
+            const resultado = [
+                { id: 1, nome: "João Silva", email: "joao@exemplo.com" },
+                { id: 2, nome: "Maria Souza", email: "maria@exemplo.com" }
+            ];
+            const consultaDiv = document.getElementById('consultaResultado');
+            consultaDiv.innerHTML = "<h3>Resultados:</h3>";
+            resultado.forEach(item => {
+                consultaDiv.innerHTML += `<p>ID: ${item.id} | Nome: ${item.nome} | E-mail: ${item.email}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
